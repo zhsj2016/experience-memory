@@ -2,6 +2,9 @@
 
 > 支持语义搜索、自动学习、智能遗忘的 AI 记忆服务
 
+[![GitHub stars](https://img.shields.io/github/stars/zhsj2016/experience-memory)](https://github.com/zhsj2016/experience-memory)
+[![GitHub license](https://img.shields.io/github/license/zhsj2016/experience-memory)](https://github.com/zhsj2016/experience-memory)
+
 ## 功能特性
 
 - **语义搜索** - 基于 TF-IDF + Hash 的向量化，支持中文语义匹配
