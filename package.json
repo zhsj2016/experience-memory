@@ -5,6 +5,8 @@
   "main": "src/MemoryStore.js",
   "scripts": {
     "start": "node index.js",
+    "start:optimizer": "node request-optimizer.js",
+    "start:all": "node index.js & node request-optimizer.js",
     "test": "jest"
   },
   "keywords": [

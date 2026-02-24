@@ -13,6 +13,57 @@
 - **重要性评分** - 基于频率、时效性、情感等因素的综合评分
 - **向量索引** - 支持相似度检索，快速找到相关记忆
 - **MCP 集成** - 支持 Model Context Protocol，可接入 Claude Desktop/OpenClaw
+- **请求优化器** - 在请求发往 AI 前自动整合历史经验，避免重复犯错
+
+## 核心功能：请求优化器
+
+> 解决"AI 重复尝试失败方案"的问题
+
+### 工作流程
+
+```
+用户发送请求 
+    ↓
+请求优化器拦截 → 查询历史经验
+    ↓
+生成优化后的请求（包含失败/成功经验）
+    ↓
+用户确认 → 发送优化后的请求 OR 用户拒绝 → 发送原始请求
+```
+
+### 启动请求优化器
+
+```bash
+# 方式1：只启动优化器 UI
+npm run start:optimizer
+
+# 方式2：同时启动记忆服务 + 优化器
+npm run start:all
+```
+
+- 优化器 UI: http://localhost:3001
+- 记忆服务 API: http://localhost:3000
+
+### API
+
+```bash
+POST /api/optimize
+Content-Type: application/json
+
+{
+  "query": "帮我修复 React 性能问题"
+}
+```
+
+返回：
+```json
+{
+  "original_query": "帮我修复 React 性能问题",
+  "optimized_query": "帮我修复 React 性能问题\n\n## 历史经验\n\n### 已失败方案(请避免重复尝试)\n1. 问题: React 加载慢\n- 尝试方案: 使用 Redux\n- 失败原因: Redux 对首屏性能帮助不大",
+  "history": [...],
+  "has_history": true
+}
+```
 
 ## 一键部署 (推荐)
 
