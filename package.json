@@ -7,10 +7,15 @@
     "start": "node index.js",
     "test": "jest"
   },
-  "keywords": ["ai", "memory", "semantic-search", "learning"],
+  "keywords": [
+    "ai",
+    "memory",
+    "semantic-search",
+    "learning"
+  ],
   "license": "MIT",
   "dependencies": {
-    "uuid": "^9.0.0",
-    "@modelcontextprotocol/sdk": "^1.0.0"
+    "@modelcontextprotocol/sdk": "^1.27.0",
+    "uuid": "^9.0.0"
   }
 }
