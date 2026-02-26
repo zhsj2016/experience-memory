@@ -1,23 +1,18 @@
 {
-  "name": "experience-memory",
+  "name": "experience-agent",
   "version": "1.0.0",
-  "description": "智能记忆系统 - 支持语义搜索、自动学习、智能遗忘",
-  "main": "src/MemoryStore.js",
-  "scripts": {
-    "start": "node index.js",
-    "start:optimizer": "node request-optimizer.js",
-    "start:all": "node index.js & node request-optimizer.js",
-    "test": "jest"
-  },
+  "description": "OpenCode 智能经验积累插件 - 自动记住走过的弯路和优质方案",
+  "private": true,
   "keywords": [
-    "ai",
+    "opencode",
+    "experience",
     "memory",
-    "semantic-search",
-    "learning"
+    "learning",
+    "plugin"
   ],
   "license": "MIT",
-  "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.27.0",
-    "uuid": "^9.0.0"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-repo/experience-agent"
   }
 }

@@ -1,6 +1,8 @@
 node_modules/
-data/
 *.log
 .DS_Store
 .env
 .env.local
+
+# 经验数据（包含用户偏好）
+experience-data/experience-data.json
