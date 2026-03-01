@@ -261,6 +261,25 @@ fi
 echo ""
 echo -e "${GREEN}=== 初始化完成 ===${NC}"
 echo ""
+
+# 检测并安装 .opencode 依赖
+if [ -d ".opencode" ] && [ -f ".opencode/package.json" ]; then
+    echo -e "${BLUE}--- 安装 opencode 插件依赖 ---${NC}"
+    cd .opencode
+    if command -v bun &> /dev/null; then
+        bun install
+    elif command -v npm &> /dev/null; then
+        npm install
+    elif command -v yarn &> /dev/null; then
+        yarn install
+    else
+        echo -e "${YELLOW}! 未检测到 bun/npm/yarn，请手动安装依赖${NC}"
+    fi
+    cd ..
+    echo -e "${GREEN}✓ opencode 插件依赖已安装${NC}"
+    echo ""
+fi
+
 echo "下一步："
 echo "  1. 编辑 experience-data/user-profile.json 填入你的偏好"
 echo "  2. 如需凭证: cp experience-data/credentials.json.example experience-data/credentials.json"
