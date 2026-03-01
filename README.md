@@ -75,6 +75,18 @@ cp experience-data/credentials.json.example experience-data/credentials.json
 bash experience-data/rollback.sh
 ```
 
+## 更新日志
+
+### v1.1 (2026-03-01)
+- 新增 `init.sh` 初始化脚本，一键复制模板文件
+- 完善 README 文档，包含所有脚本用法说明
+- 优化快速开始流程
+
+### v1.0 (2026-02-27)
+- 初始版本
+- 自动捕获和回忆经验
+- 用户偏好管理
+
 ## License
 
 MIT
