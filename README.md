@@ -23,6 +23,15 @@ bash experience-data/init.sh
 bash experience-data/enable.sh
 ```
 
+### 可选：全局安装（在所有项目中使用插件）
+
+```bash
+# 安装插件到全局目录（符号链接方式，项目更新后自动同步）
+bash experience-data/install.sh
+```
+
+全局安装后，插件将在所有 OpenCode 项目中自动加载，无需每个项目单独配置。
+
 ### 2. 配置用户偏好
 
 编辑 `experience-data/user-profile.json`，填入你的真实信息。
