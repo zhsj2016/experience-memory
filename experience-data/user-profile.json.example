@@ -1,0 +1,25 @@
+{
+  "id": "user-profile",
+  "type": "user_preference",
+  "key": "user:profile",
+  "value": {
+    "name": "请填入你的名字",
+    "nationality": "请填入国籍",
+    "location": "请填入位置",
+    "network": {
+      "needs_proxy": true,
+      "proxy_port": 1087,
+      "proxy_status": "不总是开启",
+      "preference": "国内镜像优先",
+      "note": "网络环境说明"
+    },
+    "device": {
+      "type": "设备类型",
+      "priority": "性能和兼容性优先"
+    },
+    "priorities": ["信息安全", "成本控制", "设备兼容"]
+  },
+  "tags": ["user_profile", "preference"],
+  "created_at": "",
+  "updated_at": ""
+}

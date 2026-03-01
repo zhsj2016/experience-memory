@@ -4,5 +4,10 @@ node_modules/
 .env
 .env.local
 
-# 经验数据（包含用户偏好）
+# 本地经验数据（请勿提交）
+# 使用模板文件初始化
 experience-data/experience-data.json
+experience-data/user-profile.json
+experience-data/credentials.json
+experience-data/credentials.json.enc
+experience-data/pending-issues.md
