@@ -16,21 +16,17 @@
 ### 1. 克隆项目后初始化
 
 ```bash
-# 初始化项目（自动复制模板文件并安装依赖）
+# 初始化项目（自动复制模板文件）
 bash experience-data/init.sh
 
-# 启用插件
+# 全局安装插件（推荐，在所有项目中使用）
+bash experience-data/install.sh
+
+# 或者仅在当前项目启用（不推荐，无法跨项目使用）
 bash experience-data/enable.sh
 ```
 
-### 可选：全局安装（在所有项目中使用插件）
-
-```bash
-# 安装插件到全局目录（符号链接方式，项目更新后自动同步）
-bash experience-data/install.sh
-```
-
-全局安装后，插件将在所有 OpenCode 项目中自动加载，无需每个项目单独配置。
+**推荐：全局安装** - 安装后插件在所有 OpenCode 项目中自动加载，无需每个项目单独配置。
 
 ### 2. 配置用户偏好
 
@@ -52,16 +48,17 @@ cp experience-data/credentials.json.example experience-data/credentials.json
 
 ```
 你的项目/
-├── experience-data/           # 经验数据目录（可见）
+├── experience-data/           # 经验数据目录
 │   ├── user-profile.json      # 用户偏好（模板）
 │   ├── user-profile.json.example # 用户偏好模板
 │   ├── experience-data.json  # 经验库（自动生成，本地）
 │   ├── credentials.json       # 敏感凭证（本地，不提交）
 │   ├── credentials.json.example # 凭证模板
-│   ├── init.sh               # 初始化脚本（首次使用）
-│   ├── rollback.sh           # 一键回滚脚本
-│   └── enable.sh             # 一键启用脚本
-└── experience-agent/          # 插件（全局 ~/.config/opencode/）
+│   ├── init.sh               # 初始化脚本
+│   ├── install.sh            # 全局安装脚本
+│   ├── enable.sh             # 项目启用脚本
+│   └── rollback.sh           # 回滚脚本
+└── .opencode/                 # 插件源码（符号链接到全局）
 ```
 
 ## 经验结构
