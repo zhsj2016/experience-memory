@@ -16,11 +16,10 @@
 ### 1. 克隆项目后初始化
 
 ```bash
-# 复制经验数据目录到你的项目
-cp -r experience-data/ ./你的项目/
+# 初始化项目（复制模板文件）
+bash experience-data/init.sh
 
 # 启用插件
-cd 你的项目
 bash experience-data/enable.sh
 ```
 
@@ -46,9 +45,11 @@ cp experience-data/credentials.json.example experience-data/credentials.json
 你的项目/
 ├── experience-data/           # 经验数据目录（可见）
 │   ├── user-profile.json      # 用户偏好（模板）
+│   ├── user-profile.json.example # 用户偏好模板
 │   ├── experience-data.json  # 经验库（自动生成，本地）
 │   ├── credentials.json       # 敏感凭证（本地，不提交）
 │   ├── credentials.json.example # 凭证模板
+│   ├── init.sh               # 初始化脚本（首次使用）
 │   ├── rollback.sh           # 一键回滚脚本
 │   └── enable.sh             # 一键启用脚本
 └── experience-agent/          # 插件（全局 ~/.config/opencode/）
