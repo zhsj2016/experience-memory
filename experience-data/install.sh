@@ -23,23 +23,15 @@ echo "项目: $PROJECT_DIR"
 echo "目标: $PLUGIN_DIR"
 echo ""
 
-# 1. 创建全局插件目录
-if [ ! -d "$PLUGIN_DIR" ]; then
-    mkdir -p "$PLUGIN_DIR"
-    echo -e "${GREEN}✓ 创建全局插件目录${NC}"
+# 1. 如果已存在旧目录，先删除
+if [ -e "$PLUGIN_DIR" ]; then
+    echo -e "${YELLOW}→ 删除旧插件目录...${NC}"
+    rm -rf "$PLUGIN_DIR"
 fi
 
-# 2. 使用符号链接方式链接插件
+# 2. 创建符号链接（直接链接整个目录）
 echo -e "${YELLOW}→ 创建符号链接...${NC}"
-
-# 链接 plugins 目录
-ln -sf "$PLUGIN_SOURCE/plugins" "$PLUGIN_DIR/plugins"
-
-# 链接 package.json（用于依赖管理）
-ln -sf "$PLUGIN_SOURCE/package.json" "$PLUGIN_DIR/package.json"
-
-# 链接 .gitignore
-ln -sf "$PLUGIN_SOURCE/.gitignore" "$PLUGIN_DIR/.gitignore"
+ln -s "$PLUGIN_SOURCE" "$PLUGIN_DIR"
 
 echo -e "${GREEN}✓ 符号链接创建完成${NC}"
 
@@ -58,13 +50,14 @@ fi
 echo -e "${GREEN}✓ 全局依赖已安装${NC}"
 cd "$PROJECT_DIR"
 
-# 4. 创建/更新全局配置文件
+# 4. 创建/更新全局配置文件（config.json 在 .opencode 目录下）
 CONFIG_JSON="$PLUGIN_DIR/config.json"
 if [ ! -f "$CONFIG_JSON" ]; then
     cat > "$CONFIG_JSON" << 'EOF'
 {
   "enabled": true,
-  "dataDir": "experience-data"
+  "autoCapture": true,
+  "autoRecall": true
 }
 EOF
     echo -e "${GREEN}✓ 创建配置文件${NC}"
