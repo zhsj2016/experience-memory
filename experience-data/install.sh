@@ -15,7 +15,7 @@ NC='\033[0m'
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 PROJECT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 OPENCODE_DIR="$HOME/.config/opencode"
-PLUGIN_DIR="$OPENCODE_DIR/experience-agent"
+PLUGIN_DIR="$OPENCODE_DIR/plugins/experience-agent"
 PLUGIN_SOURCE="$PROJECT_DIR/.opencode"
 
 echo -e "${BLUE}=== Experience Agent 全局安装 ===${NC}"
@@ -35,15 +35,15 @@ ln -s "$PLUGIN_SOURCE" "$PLUGIN_DIR"
 
 echo -e "${GREEN}✓ 符号链接创建完成${NC}"
 
-# 3. 安装全局依赖
+# 3. 安装全局依赖（临时使用官方 registry）
 echo -e "${BLUE}--- 安装全局依赖 ---${NC}"
 cd "$PLUGIN_DIR"
 if command -v bun &> /dev/null; then
-    bun install
+    bun config set registry https://registry.npmjs.org && bun install
 elif command -v npm &> /dev/null; then
-    npm install
+    npm install --registry=https://registry.npmjs.org
 elif command -v yarn &> /dev/null; then
-    yarn install
+    yarn config set registry https://registry.npmjs.org && yarn install
 else
     echo -e "${YELLOW}! 未检测到 bun/npm/yarn，请手动安装依赖${NC}"
 fi

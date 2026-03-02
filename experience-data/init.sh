@@ -267,11 +267,11 @@ if [ -d ".opencode" ] && [ -f ".opencode/package.json" ]; then
     echo -e "${BLUE}--- 安装 opencode 插件依赖 ---${NC}"
     cd .opencode
     if command -v bun &> /dev/null; then
-        bun install
+        bun config set registry https://registry.npmjs.org && bun install
     elif command -v npm &> /dev/null; then
-        npm install
+        npm install --registry=https://registry.npmjs.org
     elif command -v yarn &> /dev/null; then
-        yarn install
+        yarn config set registry https://registry.npmjs.org && yarn install
     else
         echo -e "${YELLOW}! 未检测到 bun/npm/yarn，请手动安装依赖${NC}"
     fi

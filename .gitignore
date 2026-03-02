@@ -14,3 +14,6 @@ experience-data/pending-issues.md
 
 # 个人资产文档（仅本地使用，不上传 GitHub）
 doc/
+
+# 本地 OpenCode 配置（禁用项目级插件加载）
+opencode.json

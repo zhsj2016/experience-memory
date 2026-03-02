@@ -1,6 +1,8 @@
 import { readFileSync, existsSync, writeFileSync, mkdirSync } from 'fs';
 import { join } from 'path';
 
+let pluginLoaded = false;
+
 function generateId() {
   return Math.random().toString(36).substring(2, 15);
 }
@@ -149,6 +151,11 @@ function analyzeSessionForExperience(messages, reason) {
 }
 
 export default async function experiencePlugin(input) {
+  if (pluginLoaded) {
+    return {};
+  }
+  pluginLoaded = true;
+  
   const projectDir = input.directory;
   const experienceDataDir = join(projectDir, 'experience-data');
   
